@@ -25,21 +25,36 @@ console.log('mail:'+mail);
 console.log('btn val:'+btnval);
 
 if(btnval==='ok'){
-    var transporter = nodemailer.createTransport({
+   send_mail(email,mail);
+  res.redirect('/');
+}
+})
+
+ app.listen(2200,function(err){
+      if(!err){
+          console.log('server is running');
+      }
+  })
+
+//lets make a function to send email 
+
+var send_mail=function(email,msg){
+  console.log('hello world');
+  var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: 'thapanirajan2069@gmail.com',
       pass: 'Thapa@2069'
     }
   });
-  
+
   var mailOptions = {
     from: 'thapanirajan2069@gmail.com',
     to: email,
     subject: 'Send from NeoTech',
-    text: mail
+    text: msg
   };
-  
+
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
       console.log(error);
@@ -47,13 +62,4 @@ if(btnval==='ok'){
       console.log('Email sent: ' + info.response);
     }
   });
-  res.redirect('/');
 }
-})
-
-  app.listen(2200,function(err){
-      if(!err){
-          console.log('server is running');
-      }
-  })
-
