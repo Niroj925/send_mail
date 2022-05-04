@@ -5,6 +5,7 @@ const path = require('path');
 const bodyParser= require('body-parser');
 const viewpath= path.join(__dirname, './view');
 var nodemailer=require('nodemailer');
+require('dotenv').config();
 
 app.set('view engine', 'ejs');
 app.set('views',viewpath);
@@ -44,7 +45,7 @@ var send_mail=function(email,msg){
     service: 'gmail',
     auth: {
       user: 'thapanirajan2069@gmail.com',
-      pass: 'Thapa@2069'
+      pass: process.env.pass,
     }
   });
 
