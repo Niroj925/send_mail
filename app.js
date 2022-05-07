@@ -44,13 +44,13 @@ var send_mail=function(email,msg){
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'thapanirajan2069@gmail.com',
+      user: 'hamroghar531@gmail.com',
       pass: process.env.pass,
     }
   });
 
   var mailOptions = {
-    from: 'thapanirajan2069@gmail.com',
+    from: 'hamroghar531@gmail.com',
     to: email,
     subject: 'Send from NeoTech',
     text: msg
