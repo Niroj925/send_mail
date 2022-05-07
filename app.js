@@ -12,7 +12,7 @@ require('dotenv').config();
 app.set('view engine', 'ejs');
 app.set('views',viewpath);
 
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: false}));
 
 app.get('/', function(req, res){
     res.render('profile');
