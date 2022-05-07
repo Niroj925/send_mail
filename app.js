@@ -5,6 +5,8 @@ const path = require('path');
 const bodyParser= require('body-parser');
 const viewpath= path.join(__dirname, './view');
 var nodemailer=require('nodemailer');
+const PORT=process.env.PORT||2200;
+
 require('dotenv').config();
 
 app.set('view engine', 'ejs');
@@ -31,7 +33,7 @@ if(btnval==='ok'){
 }
 })
 
- app.listen(2200,function(err){
+ app.listen(PORT,function(err){
       if(!err){
           console.log('server is running');
       }
